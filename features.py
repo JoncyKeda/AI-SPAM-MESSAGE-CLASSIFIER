@@ -1,14 +1,15 @@
 """
 Feature extraction module for spam message classification.
+Uses TF-IDF for better text representation.
 """
 
 from typing import List, Tuple
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def extract_features(text_data: List[str]) -> Tuple:
     """
-    Convert text data into numerical features using Bag of Words.
+    Convert text data into numerical features using TF-IDF.
 
     Args:
         text_data (List[str]): List of cleaned text messages
@@ -16,7 +17,10 @@ def extract_features(text_data: List[str]) -> Tuple:
     Returns:
         Tuple: Feature matrix and fitted vectorizer
     """
-    vectorizer = CountVectorizer()
+    vectorizer = TfidfVectorizer(
+        stop_words="english",
+        max_features=5000
+    )
     features = vectorizer.fit_transform(text_data)
 
     return features, vectorizer
@@ -24,7 +28,7 @@ def extract_features(text_data: List[str]) -> Tuple:
 
 def main() -> None:
     """
-    Test the feature extraction function.
+    Test TF-IDF feature extraction.
     """
     sample_texts = [
         "win free prize now",
