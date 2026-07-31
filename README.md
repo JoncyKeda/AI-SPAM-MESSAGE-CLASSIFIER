@@ -1,5 +1,4 @@
 🤖 AI Spam Message Classifier
-
 An AI-powered machine learning system that automatically classifies text messages as spam or not spam using natural language processing techniques.
 
 📌 Project Overview
